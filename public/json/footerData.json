@@ -1,0 +1,45 @@
+{
+  "social_links": [
+    {
+      "url": "https://www.facebook.com",
+      "icon": "fab fa-facebook-f"
+    },
+    {
+      "url": "https://www.twitter.com",
+      "icon": "fab fa-twitter"
+    },
+    {
+      "url": "https://www.instagram.com",
+      "icon": "fab fa-instagram"
+    },
+    {
+      "url": "https://www.linkedin.com",
+      "icon": "fab fa-linkedin-in"
+    }
+  ],
+  "useful_links": [
+    {
+      "url": "/about-us",
+      "text": "About Us"
+    },
+    {
+      "url": "/privacy-policy",
+      "text": "Privacy Policy"
+    },
+    {
+      "url": "/help",
+      "text": "Help"
+    },
+    {
+      "url": "/support",
+      "text": "Support"
+    }
+  ],
+  "contact": {
+    "address": "Narayanaswamy Nagar, Thandalam, Chennai-602 105",
+    "email": "abc@pentapolisfoundation.com",
+    "phone": "+033-2329907",
+    "fax": "+033-2329907"
+  },
+  "copyright": "© 2020 Copyright: www.pentapolisfoundation.com"
+}

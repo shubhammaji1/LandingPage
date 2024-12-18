@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  .icon-spacing {
+    margin-right: 15px;
+    font-size: 30px; /* Adjust the value to increase/decrease the gap */
+  }
+  
+  .conatiner-fluid {
+    background-color: white;
+  }
+  .contact p{
+    color:white;
+  }

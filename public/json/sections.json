@@ -1,0 +1,28 @@
+[
+    {
+      "icon": "fas fa-shipping-fast",
+      "title": "Service Delivery",
+      "description": "Service delivery refers to the process of providing services to customers or clients in a way that meets their expectations and needs. It involves the efficient and effective management of resources, communication, and operations to ensure high-quality outcomes."
+    },
+    {
+      "icon": "fa-solid fa-warehouse",
+      "title": "Capacity Building",
+      "description": "Capacity building about a foundation refers to the process of strengthening the skills, knowledge, resources, and abilities of individuals, organizations, or communities to improve their effectiveness and sustainability."
+    },
+    {
+      "icon": "fas fa-leaf",
+      "title": "Humanitarian Assistance",
+      "description": "Humanitarian assistance for a foundation involves providing support and resources to help individuals or communities affected by crises, such as natural disasters, conflict, or poverty."
+    },
+    {
+      "icon": "fas fa-users",
+      "title": "Community Engagement",
+      "description": "Community engagement for a foundation refers to the process of building strong relationships with local communities to empower them, understand their needs, and involve them in decision-making, planning, and implementation of programs or initiatives."
+    },
+    {
+      "icon": "fa-solid fa-seedling",
+      "title": "Sustainable Development",
+      "description": "Promoting sustainable development requires coordinated efforts from governments, businesses, civil society, and individuals, creating a collective impact that ensures a healthier planet, a fairer society, and a more prosperous future."
+    }
+  ]
+  
