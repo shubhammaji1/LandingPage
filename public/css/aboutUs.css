@@ -1,9 +1,4 @@
-body {
-    background-color: #111;
-    color: #fff;
-  }
-  
-  .hero {
+.hero {
     position: relative;
     background: url("about image1.webp") no-repeat center center;
     background-size: cover;

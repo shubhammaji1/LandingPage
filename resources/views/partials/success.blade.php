@@ -31,7 +31,6 @@
               <div class="unique-flip-card-back">
                 <h5>{{ $member['name'] }}</h5>
                 <p>{{ $member['role'] }}</p>
-                <a href="{{ $member['link'] }}">Learn More</a>
               </div>
             </div>
           </div>

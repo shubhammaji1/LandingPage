@@ -1,0 +1,35 @@
+{
+    "hero": {
+      "title": "Make a Difference Today",
+      "description": "Your generosity helps change lives!"
+    },
+    "donations": [
+      {
+        "title": "Monetary Donation",
+        "description": "Donate today, Support tomorrow",
+        "image": "images/capacity/capacityBuildingSection1.jpg",
+        "imageAlt": "Education Fund",
+        "icon": "fas fa-book",
+        "buttonText": "Donate $50",
+        "buttonLink": "#"
+      },
+      {
+        "title": "In-kind Donation",
+        "description": "Support medical treatment for those in need.",
+        "image": "images/capacity/capacityBuildingSection2.jpg",
+        "imageAlt": "Health Care",
+        "icon": "fas fa-hospital",
+        "buttonText": "Donate $100",
+        "buttonLink": "#"
+      },
+      {
+        "title": "Volunteering",
+        "description": "Provide food to families in need.",
+        "image": "images/capacity/capacityBuildingSection3.webp",
+        "imageAlt": "Food Security",
+        "icon": "fas fa-utensils",
+        "buttonText": "Donate $25",
+        "buttonLink": "#"
+      }
+    ]
+  }  

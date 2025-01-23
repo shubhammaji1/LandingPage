@@ -8,6 +8,23 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $headerJson = file_get_contents(public_path('json/header_navigation.json'));
+        $header = json_decode($headerJson, true);
+
+        $featureJson = file_get_contents(public_path('json/feature_section.json'));
+        $featureSection = json_decode($featureJson, true)['featureSection'];
+
+        $capacityJson = file_get_contents(public_path('json/capacity_building_section.json'));
+        $capacityBuildingData = json_decode($capacityJson, true);
+
+        $donationJson = file_get_contents(public_path('json/donation_section.json'));
+        $donationData = json_decode($donationJson, true);
+
+        $overviewJson = file_get_contents(public_path('json/overview_section.json'));
+        $overviewData = json_decode($overviewJson, true);
+
+        $partnersJson = file_get_contents(public_path('json/partners_clients_section.json'));
+        $partnerData = json_decode($partnersJson, true);
         
         $footerJson = file_get_contents(public_path('json/footerData.json'));
         $footerData = json_decode($footerJson, true);
@@ -28,12 +45,7 @@ class HomeController extends Controller
         $successPath = public_path('json/success.json');
         $success = file_exists($successPath) ? json_decode(file_get_contents($successPath), true):['success'];
 
-       
 
-       
-
-
-
-        return view('home', compact('footerData', 'sections', 'achievements','courses','config','success'));
+        return view('home', compact('header','featureSection','capacityBuildingData','donationData','overviewData','partnerData','footerData', 'sections', 'achievements','courses','config','success'));
     }
 }

@@ -19,7 +19,7 @@
                         <!-- Description -->
                         <p class="goals-description">{{ $section['description'] }}</p>
                         <!-- Read More Button -->
-                        <a href="#" class="goals-read-more-btn">Read More</a>
+                        <a href="{{ $section['link'] }}" class="goals-read-more-btn">Read More</a>
                     </div>
                 @endforeach
             </div>

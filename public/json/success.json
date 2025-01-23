@@ -39,41 +39,37 @@
         {
           "name": "SHRUTI",
           "role": "CSR OF PENTAPOLIS FOUNDATION",
-          "image": "images/partner/sucessPeople.jpeg",
-          "link": "#"
+          "image": "images/partner/sucessPeople.jpeg"
+          
         },
         {
           "name": "SATISH KUMAR",
           "role": "DIRECTOR OF PENTAPOLIS FOUNDATION",
-          "image": "images/partner/sucessPeople1.jpeg",
-          "link": "#"
+          "image": "images/partner/sucessPeople1.jpeg"
+          
         },
         {
           "name": "Joita",
           "role": "HEAD RECRUITER OF PENTAPOLIS FOUNDATION",
-          "image": "images/partner/sucessPeople2.jpeg",
-          "link": "#"
+          "image": "images/partner/sucessPeople2.jpeg"
         },
         {
           "name": "Bela",
           "role": "HEAD RECRUITER OF PENTAPOLIS FOUNDATION",
-          "image": "images/partner/sucessPeople3.jpeg",
-          "link": "#"
+          "image": "images/partner/sucessPeople3.jpeg"
         },
         {
           "name": "VASUDEV",
           "role": "HEAD OF IT SECTOR PENTAPOLIS FOUNDATION",
-          "image": "images/partner/sucessPeople4.jpeg",
-          "link": "#"
+          "image": "images/partner/sucessPeople4.jpeg"
         },
         {
           "name": "MAYANK",
           "role": "PROJECT MANAGER OF PENTAPOLIS FOUNDATION",
-          "image": "images/partner/sucessPeople5.jpeg",
-          "link": "#"
+          "image": "images/partner/sucessPeople5.jpeg"
         }
       ]
-    },
-    "footer": {}
+    }
+    
   }
   
