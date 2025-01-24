@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg py-4 py-lg-0 shadow nav-custom">
       <a class="navbar-brand" href="/">
-        <img src="{{ asset('assets/logo.png') }}" alt="Pentapolis Foundation" height="40" />
+        <img src="{{'images/logo/logo.png'}}" alt="Pentapolis Foundation" height="40" />
       </a>
       <button
         class="navbar-toggler border-0"

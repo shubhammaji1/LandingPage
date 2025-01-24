@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/community.css') }}">
     <link rel="stylesheet" href="{{ asset('css/service.css') }}">
     <link rel="stylesheet" href="{{ asset('css/privacy.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contactUs.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

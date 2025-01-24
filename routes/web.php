@@ -10,6 +10,10 @@ use App\Http\Controllers\CapacityBuildingController;
 use App\Http\Controllers\HumanitarianController;
 use App\Http\Controllers\SustainabilityController;
 use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\ContactController;
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 
