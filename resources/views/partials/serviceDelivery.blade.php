@@ -1,3 +1,4 @@
+<div class="global_serviceDelivery">
 <div class="solution-header animate__animated animate__fadeIn">
         <h1>Our Goals</h1>
     </div>
@@ -19,5 +20,6 @@
             @endforeach
         </div>
     </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

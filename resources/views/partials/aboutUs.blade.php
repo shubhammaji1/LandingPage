@@ -4,6 +4,8 @@
 <!-- Include AOS CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
+<div class="aboutUs_section">
+
 <section class="hero animate__animated animate__fadeIn" data-aos="fade-in" style="background-image: url('{{ $data['hero_section']['background_image'] }}');">
     <div class="container">
         <h1 class="display-30">{{ $data['hero_section']['title'] }}</h1>
@@ -99,6 +101,7 @@
         </div>
     </div>
 </section>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>

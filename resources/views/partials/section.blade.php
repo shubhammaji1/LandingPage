@@ -1,3 +1,4 @@
+<div class="global_goal_section">
 <div class="goals-section">
     <!-- Goals Header -->
     <div class="goals-header">
@@ -25,6 +26,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Include Bootstrap and Custom Script -->

@@ -1,3 +1,4 @@
+<div class="global_achievement_section">
 <div class="achievement-section">
     <!-- Header -->
     <div class="achievement-header">
@@ -22,4 +23,5 @@
         <!-- Learn More Button -->
         <button class="learn-more-btn">Reports</button>
     </div>
+</div>
 </div>

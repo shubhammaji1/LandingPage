@@ -1,3 +1,4 @@
+<div class="global_success">
 <div class="unique-success-container">
   <h1>Success Story</h1>
   <!-- Blog Section -->
@@ -38,4 +39,5 @@
       @endforeach
     </div>
   </div>
+</div>
 </div>

@@ -1,3 +1,4 @@
+<div class="global_capacity_building_section">
 <div class="container mt-5">
     <h1 class="text-center mb-4">{{ $capacityBuildingData['title'] }}</h1>
     <p class="text-center">{{ $capacityBuildingData['description'] }}</p>
@@ -16,4 +17,5 @@
             </div>
         @endforeach
     </div>
+</div>
 </div>

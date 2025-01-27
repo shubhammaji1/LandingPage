@@ -1,3 +1,4 @@
+<div class="global_courses">
 <div class="container-fluid p-3 mb-5 courseContainer">
     <div class="d-flex align-items-center justify-content-center mb-4 position-relative">
         <button
@@ -45,4 +46,5 @@
             @endforeach
         </div>
     </div>
+</div>
 </div>

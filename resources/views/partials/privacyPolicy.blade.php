@@ -1,3 +1,4 @@
+<div class="global_privacy_policy">
 <div class="privacy-container">
     <header>
         <h1>{{ $privacyPolicy['title'] }}</h1>
@@ -51,4 +52,5 @@
         </p>
     </section>
 
+</div>
 </div>

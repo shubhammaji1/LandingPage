@@ -11,6 +11,7 @@ use App\Http\Controllers\HumanitarianController;
 use App\Http\Controllers\SustainabilityController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
@@ -23,6 +24,7 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 Route::get('/help-us', [HelpController::class, 'help'])->name('help-us');
 Route::get('/community-engagement', [CommunityEngagementController::class, 'community'])->name('community-engagement');

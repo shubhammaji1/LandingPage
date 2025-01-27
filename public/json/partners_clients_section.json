@@ -1,71 +1,25 @@
-{
-  "section_id": "partners-and-clients",
-  "background_color": "#000000",
-  "container": {
-    "background_color": "#f3f3f3",
-    "border_radius": "5rem",
-    "height": "300px"
-  },
-  "heading": {
-    "text": "Our Partners",
-    "alignment": "center",
-    "font_size": "5rem",
-    "color": "#333",
-    "font_weight": "bold",
-    "padding": "2rem",
-    "margin_bottom": "3rem"
-  },
-  "logos": [
-    { "src": "/assets/1.png", "alt": "Partner 1" },
-    { "src": "/assets/2.png", "alt": "Partner 2" },
-    { "src": "/assets/3.png", "alt": "Partner 3" },
-    { "src": "/assets/4.png", "alt": "Partner 4" },
-    { "src": "/assets/5.png", "alt": "Partner 5" },
-    { "src": "/assets/6.png", "alt": "Partner 6" },
-    { "src": "/assets/7.png", "alt": "Partner 7" },
-    { "src": "/assets/8.png", "alt": "Partner 8" },
-    { "src": "/assets/9.png", "alt": "Partner 9" },
-    { "src": "/assets/10.png", "alt": "Partner 10" },
-    { "src": "/assets/11.png", "alt": "Partner 11" },
-    { "src": "/assets/12.png", "alt": "Partner 12" },
-    { "src": "/assets/13.png", "alt": "Partner 13" },
-    { "src": "/assets/14.png", "alt": "Partner 14" },
-    { "src": "/assets/15.png", "alt": "Partner 15" },
-    { "src": "/assets/16.png", "alt": "Partner 16" },
-    { "src": "/assets/17.png", "alt": "Partner 17" },
-    { "src": "/assets/18.png", "alt": "Partner 18" },
-    { "src": "/assets/19.png", "alt": "Partner 19" },
-    { "src": "/assets/20.png", "alt": "Partner 20" },
-    { "src": "/assets/21.png", "alt": "Partner 21" }
-  ],
-  "slider_settings": {
-    "dots": false,
-    "slidesToShow": 7,
-    "slidesToScroll": 1,
-    "autoplay": true,
-    "autoplaySpeed": 1000,
-    "arrows": false,
-    "pauseOnHover": true,
-    "responsive": [
-      {
-        "breakpoint": 1024,
-        "settings": {
-          "slidesToShow": 4
-        }
-      },
-      {
-        "breakpoint": 768,
-        "settings": {
-          "slidesToShow": 3
-        }
-      },
-      {
-        "breakpoint": 520,
-        "settings": {
-          "slidesToShow": 1
-        }
-      }
-    ]
-  }
-}
+[
+    { "src": "images/partnersAndClient/1.png", "alt": "Partner 1" },
+    { "src": "images/partnersAndClient/2.png", "alt": "Partner 2" },
+    { "src": "images/partnersAndClient/3.png", "alt": "Partner 3" },
+    { "src": "images/partnersAndClient/4.png", "alt": "Partner 4" },
+    { "src": "images/partnersAndClient/5.png", "alt": "Partner 5" },
+    { "src": "images/partnersAndClient/6.png", "alt": "Partner 6" },
+    { "src": "images/partnersAndClient/7.png", "alt": "Partner 7" },
+    { "src": "images/partnersAndClient/8.png", "alt": "Partner 8" },
+    { "src": "images/partnersAndClient/9.png", "alt": "Partner 9" },
+    { "src":  "images/partnersAndClient/10.png", "alt": "Partner 10" },
+    { "src":  "images/partnersAndClient/1.png", "alt": "Partner 11" },
+    { "src":  "images/partnersAndClient/2.png", "alt": "Partner 12" },
+    { "src":  "images/partnersAndClient/3.png", "alt": "Partner 13" },
+    { "src":  "images/partnersAndClient/4.png", "alt": "Partner 14" },
+    { "src":  "images/partnersAndClient/5.png", "alt": "Partner 15" },
+    { "src":  "images/partnersAndClient/6.png", "alt": "Partner 16" },
+    { "src":  "images/partnersAndClient/7.png", "alt": "Partner 17" },
+    { "src":  "images/partnersAndClient/8.png", "alt": "Partner 18" },
+    { "src":  "images/partnersAndClient/9.png", "alt": "Partner 19" },
+    { "src":  "images/partnersAndClient/10.png", "alt": "Partner 20" },
+    { "src":  "images/partnersAndClient/10.png", "alt": "Partner 21" }
+  ]
+
   

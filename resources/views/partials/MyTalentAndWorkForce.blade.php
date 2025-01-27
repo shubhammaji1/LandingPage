@@ -1,3 +1,5 @@
+ <div class="global_myTalent">
+ 
  <!-- Header -->
     <header>
       <h1>{{ $config['title'] }}</h1>
@@ -26,6 +28,7 @@
       </div>
       @endforeach
     </section>
+    </div>
 
     <!-- JavaScript -->
     <script>

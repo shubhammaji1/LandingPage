@@ -16,7 +16,8 @@
             "subtitle": "Empowering Communities Through Services and Sustainable Development",
             "button": {
               "text": "Get Involved",
-              "classes": "pf-btn font-weight-bold animate_zoomIn"
+              "classes": "pf-btn font-weight-bold animate_zoomIn",
+              "link": "/login"
             }
           }
         },
@@ -28,7 +29,8 @@
             "subtitle": "Empowering Communities Through Services and Sustainable Development",
             "button": {
               "text": "Get Involved",
-              "classes": "pf-btn font-weight-bold animate_zoomIn"
+              "classes": "pf-btn font-weight-bold animate_zoomIn",
+              "link": "/login"
             }
           }
         },
@@ -40,7 +42,8 @@
             "subtitle": "Empowering Communities Through Services and Sustainable Development",
             "button": {
               "text": "Get Involved",
-              "classes": "pf-btn font-weight-bold animate_zoomIn"
+              "classes": "pf-btn font-weight-bold animate_zoomIn",
+              "link": "/login"
             }
           }
         }

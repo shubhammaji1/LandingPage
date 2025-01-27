@@ -1,3 +1,4 @@
+<div class="global_contact_us_section">
 <div class="container contact-container">
   <div class="row">
     <!-- Form Column -->
@@ -47,3 +48,31 @@
     </div>
   </div>
 </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Map Initialization Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize the map
+        const map = L.map('map').setView([20.5937, 78.9629], 5); // Center on India
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Fetch city data from contact.json
+        fetch('{{ asset("contact.json") }}')
+            .then(response => response.json())
+            .then(data => {
+                data.cities.forEach(city => {
+                    const marker = L.marker(city.coords).addTo(map);
+                    marker.bindPopup(`<b>${city.name}</b>`).openPopup();
+                });
+            })
+            .catch(error => console.error('Error loading city data:', error));
+    });
+</script>

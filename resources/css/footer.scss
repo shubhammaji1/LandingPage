@@ -1,0 +1,27 @@
+.global_footer{
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  .icon-spacing {
+    margin-right: 15px;
+    font-size: 30px; /* Adjust the value to increase/decrease the gap */
+  }
+  
+  .conatiner-fluid {
+    background-color: white;
+  }
+  .contact p{
+    color:white;
+  }
+  .ft-copyright{
+    text-decoration: none;
+  }
+  #map {
+    height: 400px; /* Set the height of the map */
+    width: 100%; /* Full width */
+    margin-top: 20px;
+}
+}

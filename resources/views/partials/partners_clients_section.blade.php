@@ -1,37 +1,25 @@
-<div class="partnershipAndClient" style="background-color: {{ $partnerData['background_color'] }}">
-    <div class="container" style="background-color: {{ $partnerData['container']['background_color'] }}; border-radius: {{ $partnerData['container']['border_radius'] }}; height: {{ $partnerData['container']['height'] }}">
-        <h1 class="heading1" style="text-align: {{ $partnerData['heading']['alignment'] }}; font-size: {{ $partnerData['heading']['font_size'] }}; color: {{ $partnerData['heading']['color'] }}; font-weight: {{ $partnerData['heading']['font_weight'] }}; padding: {{ $partnerData['heading']['padding'] }}; margin-bottom: {{ $partnerData['heading']['margin_bottom'] }}">
-            {{ $partnerData['heading']['text'] }}
-        </h1>
-        <div class="customer-logos slider">
-            @foreach ($partnerData['logos'] as $logo)
-                <div class="slide">
-                    <img src="{{ asset($logo['src']) }}" alt="{{ $logo['alt'] }}">
-                </div>
-            @endforeach
+<div class="global_partners_and_clients">
+<section class="features3 cid-qKT6knwV2G" id="clients2-2p">
+    <div class="container mb-4">
+        <div class="media-container-row">
+            <div class="col-12 align-center">
+                <h2 class="mbr-section-title text-center pb-2 mbr-fonts-style display-2">Our Partners</h2>
+                <h3 class="mbr-section-subtitle mbr-light mbr-fonts-style display-7"></h3>
+            </div>
         </div>
     </div>
+    <div class="container">
+        <div class="slider-container">
+            <div class="slider-track">
+                @foreach ($partnerData as $partner)
+                    <div class="client-wrapper">
+                        <div class="wrap-img">
+                            <img src="{{ $partner['src'] }}" class="img-responsive clients-img" alt="{{ $partner['alt'] }}" />
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const slider = document.querySelector('.customer-logos');
-        const slides = Array.from(slider.children);
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            const totalSlides = slides.length;
-            if (index >= totalSlides) currentIndex = 0;
-            else if (index < 0) currentIndex = totalSlides - 1;
-            else currentIndex = index;
-            const offset = -currentIndex * 100;
-            slider.style.transform = `translateX(${offset}%)`;
-        }
-
-        let autoSlideInterval = setInterval(() => showSlide(currentIndex + 1), {{ $data['slider_settings']['autoplaySpeed'] ?? 3000 }});
-
-        slider.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        slider.addEventListener('mouseout', () => autoSlideInterval = setInterval(() => showSlide(currentIndex + 1), {{ $data['slider_settings']['autoplaySpeed'] ?? 3000 }}));
-
-        showSlide(currentIndex);  
-    });
-</script>

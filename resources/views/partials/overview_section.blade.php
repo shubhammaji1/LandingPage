@@ -1,3 +1,4 @@
+<div class="global_overview_section">
 <section id="about" class="about section-padding">
     <div class="overviewcontainer">
         <div class="row">
@@ -16,3 +17,4 @@
         </div>
     </div>
 </section>
+</div>

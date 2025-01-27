@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.contact_us')
+@include('partials.header', ['header' => $header])
+@include('partials.contact_us')
+@include('partials.footer', ['footerData' => $footerData])
+  
 @endsection
 
 @push('scripts')

@@ -1,3 +1,4 @@
+
 <nav class="help-navbar">
   <div class="help-navbar-container">
     <img src="footer-logo-removebg-preview.png" width="180px" height="50px">

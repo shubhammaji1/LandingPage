@@ -1,0 +1,1 @@
+.global_login .divider:after,.global_login .divider:before{background:#eee;content:"";flex:1;height:1px}.global_login .h-custom{height:calc(100% - 73px)}@media(max-width:450px){.global_login .h-custom{height:100%}}

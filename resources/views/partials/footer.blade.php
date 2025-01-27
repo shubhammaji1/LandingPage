@@ -1,3 +1,4 @@
+<div class="global_footer">
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
     <!-- Social Media Section -->
     <section class="d-flex justify-content-between p-1" style="background-color: rgb(244, 241, 39)">
@@ -40,6 +41,7 @@
 
     <!-- Copyright Section -->
     <div class="text-center p-3" style="background-color: rgb(244, 241, 39)">
-        <a class="text-black">{{ $footerData['copyright'] }}</a>
+        <a class="ft-copyright text-black">{{ $footerData['copyright'] }}</a>
     </div>
 </footer>
+</div>

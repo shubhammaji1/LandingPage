@@ -1,3 +1,4 @@
+<div class="global_donation_section">
 <div class="hero-section">
     <h1 data-aos="fade-up" data-aos-duration="1500">{{ $donationData['hero']['title'] }}</h1>
     <p data-aos="fade-up" data-aos-duration="2000">{{ $donationData['hero']['description'] }}</p>
@@ -21,5 +22,6 @@
             </div>
         @endforeach
     </div>
+</div>
 </div>
 

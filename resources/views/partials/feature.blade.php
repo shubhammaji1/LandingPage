@@ -1,3 +1,4 @@
+<div class="global_feature_section">
 <div id="{{ $featureSection['carousel']['id'] }}" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
     <div class="carousel-indicators">
         @foreach($featureSection['carousel']['indicators'] as $index => $indicator)
@@ -14,11 +15,16 @@
     <div class="carousel-inner">
         @foreach($featureSection['carousel']['slides'] as $index => $slide)
             <div class="carousel-item @if($index === 0) active @endif">
-                <img src="{{ asset($slide['image']) }}" alt="{{ $slide['altText'] }}" class="d-block w-100" />
-                <div class="pf-carousel-caption text-center">
+                <img src="{{ asset($slide['image']) }}" alt="{{ $slide['altText'] }}" class="d-block w-100" style="object-fit: cover; height: 500px;" />
+                <div class="carousel-caption text-center">
                     <h1 class="animate__animated animate_slideInDown">{{ $slide['caption']['title'] }}</h1>
                     <h3 class="animate__animated animate_zoomIn">{{ $slide['caption']['subtitle'] }}</h3>
-                    <button class="{{ $slide['caption']['button']['classes'] }} mt-3">{{ $slide['caption']['button']['text'] }}</button>
+                    <button class="{{ $slide['caption']['button']['classes'] }} mt-3" style="position: relative; overflow: hidden;">
+    <a href="{{ $slide['caption']['button']['link'] }}" style="text-decoration:none;color:white">
+        {{ $slide['caption']['button']['text'] }}
+    </a>
+</button>
+
                 </div>
             </div>
         @endforeach
@@ -39,4 +45,5 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">{{ $featureSection['carousel']['controls']['next']['label'] }}</span>
     </button>
+</div>
 </div>
