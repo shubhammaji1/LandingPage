@@ -18,6 +18,10 @@ use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\TermsController;
+
+Route::get('/terms-and-conditions', [TermsController::class, 'index']);
+
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 

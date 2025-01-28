@@ -22,7 +22,7 @@
         <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/"><i class="fas fa-briefcase"></i> My Talent & Workforce</a>
+        <a class="nav-link" href="#my-talent-workforce"><i class="fas fa-briefcase"></i> My Talent & Workforce</a>
       </li>
       <li class="nav-item dropdown">
         <a

@@ -1,4 +1,4 @@
- <div class="global_myTalent">
+ <div class="global_myTalent" id="my-talent-workforce">
  
  <!-- Header -->
     <header>

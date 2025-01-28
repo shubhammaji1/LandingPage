@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pentapolis</title>
-    <!-- <title>@yield('title', config('app.name', 'Pentapolis'))</title> -->
-    <link rel="icon" href="{{ asset('logo/PPF-LOGO.jpg') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ mix('css/login.css') }}">
     <link rel="stylesheet" href="{{ mix('css/feature.css') }}">
@@ -33,6 +32,7 @@
     <script src="{{asset('js/monetary.js')}}"></script>
     <link rel="stylesheet" href="{{ mix('css/volunteer.css') }}">
     <link rel="stylesheet" href="{{ mix('css/blog.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/terms.css') }}">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
