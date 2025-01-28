@@ -17,6 +17,9 @@ use App\Http\Controllers\MonetaryDonationController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\OtpController;
+use App\Http\Controllers\BlogController;
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 
 Route::post('/send-email-otp', [OtpController::class, 'sendEmailOtp'])->name('send.email.otp');
 // Show the signup form

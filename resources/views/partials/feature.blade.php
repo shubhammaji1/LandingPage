@@ -20,7 +20,7 @@
                     <h1 class="animate__animated animate_slideInDown">{{ $slide['caption']['title'] }}</h1>
                     <h3 class="animate__animated animate_zoomIn">{{ $slide['caption']['subtitle'] }}</h3>
                     <button class="{{ $slide['caption']['button']['classes'] }} mt-3" style="position: relative; overflow: hidden;">
-    <a href="{{ $slide['caption']['button']['link'] }}" style="text-decoration:none;color:white">
+                    <a href="{{ $slide['caption']['button']['link'] }}" style="text-decoration:none;color:white">
         {{ $slide['caption']['button']['text'] }}
     </a>
 </button>

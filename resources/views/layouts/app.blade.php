@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{ mix('css/monetary.css') }}">
     <script src="{{asset('js/monetary.js')}}"></script>
     <link rel="stylesheet" href="{{ mix('css/volunteer.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/blog.css') }}">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>

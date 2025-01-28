@@ -21,7 +21,7 @@
         </div>
 
         <!-- Learn More Button -->
-        <button class="learn-more-btn">Blog</button>
+        <button class="learn-more-btn"><a href ="/blog">Blog</a></button>
     </div>
 </div>
 </div>

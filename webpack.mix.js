@@ -24,5 +24,6 @@ mix.sass('resources/css/feature.scss', 'public/css')
     .sass('resources/css/humanitarian.scss', 'public/css')
     .sass('resources/css/capacity.scss', 'public/css')
     .sass('resources/css/signup.scss', 'public/css')
+    .sass('resources/css/blog.scss', 'public/css')
 
     .setPublicPath('public');
