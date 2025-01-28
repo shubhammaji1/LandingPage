@@ -11,7 +11,7 @@
         "imageAlt": "Education Fund",
         "icon": "fas fa-book",
         "buttonText": "Donate $50",
-        "buttonLink": "#"
+        "buttonLink": "/monetary-donation"
       },
       {
         "title": "In-kind Donation",
@@ -20,7 +20,7 @@
         "imageAlt": "Health Care",
         "icon": "fas fa-hospital",
         "buttonText": "Donate $100",
-        "buttonLink": "#"
+        "buttonLink": "/inkind"
       },
       {
         "title": "Volunteering",
@@ -29,7 +29,7 @@
         "imageAlt": "Food Security",
         "icon": "fas fa-utensils",
         "buttonText": "Donate $25",
-        "buttonLink": "#"
+        "buttonLink": "/volunteer"
       }
     ]
   }  

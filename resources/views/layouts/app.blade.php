@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ mix('css/overview_section.css') }}">
     <link rel="stylesheet" href="{{ mix('css/donation_section.css') }}">
     <link rel="stylesheet" href="{{ mix('css/partners_and_clients.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/humanitarian.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/capacity.css') }}">
     <link rel="stylesheet" href="{{ mix('css/footer.css') }}">
     <link rel="stylesheet" href="{{ mix('css/achievement.css') }}">
     <link rel="stylesheet" href="{{ mix('css/goalSection.css') }}">
@@ -26,6 +28,11 @@
     <link rel="stylesheet" href="{{ mix('css/service.css') }}">
     <link rel="stylesheet" href="{{ mix('css/privacy.css') }}">
     <link rel="stylesheet" href="{{ mix('css/contactUs.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/signup.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/monetary.css') }}">
+    <script src="{{asset('js/monetary.js')}}"></script>
+    <link rel="stylesheet" href="{{ mix('css/volunteer.css') }}">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

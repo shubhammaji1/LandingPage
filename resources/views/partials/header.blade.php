@@ -1,5 +1,5 @@
 <div class="global_header">
-<nav class="navbar navbar-expand-lg py-3 py-lg-2 shadow nav-custom">
+<nav class="navbar navbar-expand-lg py-3 py-lg-2 shadow nav-custom" style="background-color: rgb(244, 241, 39)">
   <a class="navbar-brand d-flex align-items-center" href="/">
     <img src="{{ asset($header['header']['logo']['src']) }}" alt="Pentapolis Foundation" height="40" />
     <span class="ms-2 nv-logo-title">Pentapolis Foundation</span>
@@ -51,8 +51,8 @@
           <i class="fas fa-hand-holding-usd"></i> Give
         </a>
         <ul class="dropdown-menu p-3 mb-2 text-dark" aria-labelledby="giveDropdown">
-          <li><a class="dropdown-item" href="/donate"><i class="fas fa-dollar-sign"></i> Monetary Donation</a></li>
-          <li><a class="dropdown-item" href="/in-kind-donation"><i class="fas fa-box"></i> In-Kind Donation</a></li>
+          <li><a class="dropdown-item" href="/monetary-donation"><i class="fas fa-dollar-sign"></i> Monetary Donation</a></li>
+          <li><a class="dropdown-item" href="/inkind"><i class="fas fa-box"></i> In-Kind Donation</a></li>
           <li><a class="dropdown-item" href="/volunteering"><i class="fas fa-hands-helping"></i> Volunteering</a></li>
         </ul>
       </li>
@@ -64,7 +64,6 @@
     <!-- Login and Signup Buttons -->
     <div class="d-flex align-items-center ms-lg-3">
       <a href="/login" class="nav-btn nav-btn-outline-primary me-2"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-      <a href="/register" class="nav-btn nav-btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
     </div>
   </div>
 </nav>

@@ -12,9 +12,20 @@ use App\Http\Controllers\SustainabilityController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\InkindController;
+use App\Http\Controllers\MonetaryDonationController;
+use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\OtpController;
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/send-email-otp', [OtpController::class, 'sendEmailOtp'])->name('send.email.otp');
+// Show the signup form
+Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
+
+
+// Submit the signup form
+Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
+
 
 
 
@@ -33,12 +44,18 @@ Route::get('/capacity-building', [CapacityBuildingController::class, 'capacity']
 Route::get('/humanitarian-assistance', [HumanitarianController::class, 'humanitarian'])->name('humanitarian-assistance');
 Route::get('/sustainable-development', [SustainabilityController::class, 'sustainability'])->name('sustainable-development');
 Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('privacy.policy');
-   
+Route::get('/monetary-donation', [MonetaryDonationController::class, 'showForm'])->name('monetary.form');
+Route::post('/monetary-donation', [MonetaryDonationController::class, 'submitForm'])->name('monetary.submit');
+Route::get('/inkind', [InkindController::class, 'showForm'])->name('donation.form');
+Route::post('/inkind', [InkindController::class, 'submitForm'])->name('donation.submit');
+Route::get('/volunteering', [VolunteerController::class, 'create'])->name('volunteer.create');
+Route::post('/volunteering', [VolunteerController::class, 'store'])->name('volunteer.store');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+// Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
+// Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
 
 
 
-
-// Route::get('/footer', [FooterController::class, 'index']);
-// Route::get('/', [PageController::class, 'index']);
 
 

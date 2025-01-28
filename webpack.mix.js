@@ -19,5 +19,10 @@ mix.sass('resources/css/feature.scss', 'public/css')
     .sass('resources/css/partners_and_clients.scss', 'public/css')
     .sass('resources/css/footer.scss', 'public/css')
     .sass('resources/css/login.scss', 'public/css')
+    .sass('resources/css/monetary.scss', 'public/css')
+    .sass('resources/css/volunteer.scss', 'public/css')
+    .sass('resources/css/humanitarian.scss', 'public/css')
+    .sass('resources/css/capacity.scss', 'public/css')
+    .sass('resources/css/signup.scss', 'public/css')
 
     .setPublicPath('public');

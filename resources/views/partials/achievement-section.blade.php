@@ -21,7 +21,7 @@
         </div>
 
         <!-- Learn More Button -->
-        <button class="learn-more-btn">Reports</button>
+        <button class="learn-more-btn">Blog</button>
     </div>
 </div>
 </div>
