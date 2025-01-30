@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
         $userType = $request->input('type');
 
-        // Save the selected user type to a JSON file
+        
         $jsonFile = public_path('json/user_types.json');
         file_put_contents($jsonFile, json_encode(['default' => $userType]));
 

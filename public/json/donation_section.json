@@ -10,7 +10,7 @@
         "image": "images/capacity/capacityBuildingSection1.jpg",
         "imageAlt": "Education Fund",
         "icon": "fas fa-book",
-        "buttonText": "Donate $50",
+        "buttonText": "Donate",
         "buttonLink": "/monetary-donation"
       },
       {
@@ -19,7 +19,7 @@
         "image": "images/capacity/capacityBuildingSection2.jpg",
         "imageAlt": "Health Care",
         "icon": "fas fa-hospital",
-        "buttonText": "Donate $100",
+        "buttonText": "Donate",
         "buttonLink": "/inkind"
       },
       {
@@ -28,7 +28,7 @@
         "image": "images/capacity/capacityBuildingSection3.webp",
         "imageAlt": "Food Security",
         "icon": "fas fa-utensils",
-        "buttonText": "Donate $25",
+        "buttonText": "Donate",
         "buttonLink": "/volunteer"
       }
     ]

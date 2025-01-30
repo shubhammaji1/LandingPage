@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ mix('css/donation_section.css') }}">
     <link rel="stylesheet" href="{{ mix('css/partners_and_clients.css') }}">
     <link rel="stylesheet" href="{{ mix('css/humanitarian.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/sustainable.css') }}">
     <link rel="stylesheet" href="{{ mix('css/capacity.css') }}">
     <link rel="stylesheet" href="{{ mix('css/footer.css') }}">
     <link rel="stylesheet" href="{{ mix('css/achievement.css') }}">

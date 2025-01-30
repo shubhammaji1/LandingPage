@@ -1,3 +1,4 @@
+<div class="global_sustainable">
 <div class="solution-header animate_animated animate_fadeIn">
     <h1>Our Goals</h1>
 </div>
@@ -17,4 +18,5 @@
             </div>
         @endforeach
     </div>
+</div>
 </div>

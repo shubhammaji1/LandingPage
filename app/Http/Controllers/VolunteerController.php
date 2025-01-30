@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class VolunteerController extends Controller
 {
-    /**
-     * Show the volunteer form.
-     */
     public function create()
     {
         $headerJson = file_get_contents(public_path('json/header_navigation.json'));
@@ -20,9 +17,6 @@ class VolunteerController extends Controller
         return view('volunteer', compact('volunteerData','header','footerData'));
     }
 
-    /**
-     * Store the volunteer form data.
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -35,8 +29,7 @@ class VolunteerController extends Controller
             'phone_number' => 'required|string|max:15',
         ]);
 
-        // Save the validated data to the database or send it via email
-        // Volunteer::create($validatedData);
+
 
         return redirect()->back()->with('success', 'Your application has been submitted successfully!');
     }

@@ -20,6 +20,7 @@ use App\Http\Controllers\OtpController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TermsController;
 
+
 Route::get('/terms-and-conditions', [TermsController::class, 'index']);
 
 
@@ -32,6 +33,7 @@ Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
 
 // Submit the signup form
 Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
+
 
 
 
@@ -58,7 +60,7 @@ Route::post('/inkind', [InkindController::class, 'submitForm'])->name('donation.
 Route::get('/volunteering', [VolunteerController::class, 'create'])->name('volunteer.create');
 Route::post('/volunteering', [VolunteerController::class, 'store'])->name('volunteer.store');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/contact-us/submit', [ContactController::class, 'submit'])->name('contact.submit');
 // Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
 // Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
 

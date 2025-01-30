@@ -2,33 +2,34 @@
   <div class="container contact-container">
     <div class="row">
       <!-- Form Column -->
-      <div class="col-lg-6 col-md-12 form-column animate__animated animate__fadeInLeft">
+      <div class="col-lg-6 col-md-12 form-column animate_animated animate_fadeInLeft">
         <h3>Contact Us</h3>
-        <form id="contactForm">
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Enter your Name" required />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Enter a valid email address" required />
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" class="form-control" rows="4" placeholder="Enter your Message" required></textarea>
-          </div>
-          <div class="form-check mb-3">
-            <input type="checkbox" id="terms" class="form-check-input" />
-            <label for="terms" class="form-check-label">
-              I accept the <a href="/terms-and-conditions" class="text-decoration-none">Terms of Service</a>
-            </label>
-          </div>
-          <button type="submit" class="btn btn-warning w-100" id="submitBtn" disabled>SUBMIT</button>
-        </form>
-      </div>
+<form id="contactForm" method="POST" action="{{ url('/contact-us/submit') }}">
+    @csrf  <!-- This generates a hidden CSRF token input field -->
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your Name" required />
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter a valid email address" required />
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Enter your Message" required></textarea>
+    </div>
+    <div class="form-check mb-3">
+        <input type="checkbox" id="terms" class="form-check-input" name="terms" />
+        <label for="terms" class="form-check-label">
+            I accept the <a href="/terms-and-conditions" class="text-decoration-none">Terms of Service</a>
+        </label>
+    </div>
+    <button type="submit" class="btn btn-warning w-100" id="submitBtn" disabled>SUBMIT</button>
+</form>
+</div>
 
       <!-- Details Column -->
-      <div class="col-lg-6 col-md-12 details-column animate__animated animate__fadeInRight">
+      <div class="col-lg-6 col-md-12 details-column animate_animated animate_fadeInRight">
         <h5>CALL US</h5>
         <p>1 (234) 567-891</p>
         <p>1 (234) 987-654</p>
@@ -56,37 +57,37 @@
 <!-- Map Initialization Script -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Initialize the map
-    const map = L.map("map").setView([20.5937, 78.9629], 5); // Center on India
-
-    // Add OpenStreetMap tiles
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-    }).addTo(map);
-
-    // Fetch city data from contact.json
-    fetch("{{ asset('contact.json') }}")
-      .then((response) => response.json())
-      .then((data) => {
-        data.cities.forEach((city) => {
-          const marker = L.marker(city.coords).addTo(map);
-          marker.bindPopup(`<b>${city.name}</b>`).openPopup();
-        });
-      })
-      .catch((error) => console.error("Error loading city data:", error));
-
-    // Check localStorage for termsAccepted flag
     const termsCheckbox = document.getElementById("terms");
     const submitButton = document.getElementById("submitBtn");
 
     if (localStorage.getItem("termsAccepted") === "true") {
       termsCheckbox.checked = true;
-      submitButton.disabled = false; // Enable submit button
+      submitButton.disabled = false;
     }
 
-    // Enable submit button only when terms checkbox is checked
     termsCheckbox.addEventListener("change", () => {
       submitButton.disabled = !termsCheckbox.checked;
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("{{ url('/contact-us/submit') }}", {
+        method: "POST",
+        headers: {
+          "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+        },
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        document.getElementById("contactForm").reset();
+        submitButton.disabled = true;
+      })
+      .catch(error => console.error("Error submitting the form:", error));
     });
   });
 </script>

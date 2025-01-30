@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    // Display the contact page
     public function index()
     {
         $headerJson = file_get_contents(public_path('json/header_navigation.json'));
@@ -15,10 +15,10 @@ class ContactController extends Controller
         $footerData = json_decode($footerJson, true);
         $contactJson = file_get_contents(public_path('json/contactUs.json'));
         $contact = json_decode($contactJson, true);
-        return view('contact',compact('contact','header','footerData'));
+
+        return view('contact', compact('contact', 'header', 'footerData'));
     }
 
-    // Handle form submission
     public function submit(Request $request)
     {
         $request->validate([
@@ -28,8 +28,12 @@ class ContactController extends Controller
             'terms' => 'accepted'
         ]);
 
-        // Save or process the form data (e.g., send an email)
-        // For now, just return a success message
-        return response()->json(['message' => 'Thank you for contacting us! We will get back to you soon.']);
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]);
+
+        return response()->json(['message' => 'Your message has been sent successfully!']);
     }
 }

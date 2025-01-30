@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('content')
 @include('partials.header', ['header' => $header])
 @include('partials.contact_us')
@@ -8,6 +8,7 @@
 @endsection
 
 @push('scripts')
+
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script>
     // Fetch cities data from JSON
