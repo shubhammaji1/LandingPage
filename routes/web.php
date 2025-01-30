@@ -56,7 +56,7 @@ Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('p
 Route::get('/monetary-donation', [MonetaryDonationController::class, 'showForm'])->name('monetary.form');
 Route::post('/monetary-donation', [MonetaryDonationController::class, 'submitForm'])->name('monetary.submit');
 Route::get('/inkind', [InkindController::class, 'showForm'])->name('donation.form');
-Route::post('/inkind', [InkindController::class, 'submitForm'])->name('donation.submit');
+Route::post('/inkind-donation/submit', [InkindController::class, 'submitForm'])->name('donation.submit');
 Route::get('/volunteering', [VolunteerController::class, 'create'])->name('volunteer.create');
 Route::post('/volunteering', [VolunteerController::class, 'store'])->name('volunteer.store');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
