@@ -1,62 +1,91 @@
 <div class="global_login">
 <div class="body_login">
-<div class="row align-items-center">
-    <div class="header-text mb-4">
-        <h2>Hello</h2>
-        <p>We are happy to have you</p>
-    </div>
-   <div class="btn-group mb-4 w-100" role="group" aria-label="User Type">
-    <button type="button" class="btn btn-outline-primary {{ $activeType === 'Student' ? 'active' : '' }}" data-type="Student">Student</button>
-    <button type="button" class="btn btn-outline-primary {{ $activeType === 'Employee' ? 'active' : '' }}" data-type="Employee">Employee</button>
-    <button type="button" class="btn btn-outline-primary {{ $activeType === 'Customer' ? 'active' : '' }}" data-type="Customer">Customer</button>
-</div>
-
-    <div class="input-group mb-3">
-        <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email address">
-    </div>
-    <div class="input-group mb-3 password-wrapper">
-        <input type="password" class="form-control form-control-lg bg-light fs-6" id="password" placeholder="Password">
-        <i class="bi bi-eye-slash toggle-password" id="togglePassword"></i>
-    </div>
-    <div class="input-group mb-5 d-flex justify-content-between">
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="formCheck">
-            <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row box-area shadow">
+        <div class="col-md-6 left-box">
+            <div class="featured-image">
+                <img src="{{ asset('images/logo/PPF-LOGO.jpg') }}" alt="Logo" />
+            </div>
         </div>
-        <div class="forgot">
-            <small><a href="#">Forgot Password?</a></small>
+        <div class="col-md-6 right-box">
+            <div class="text-center mb-3">
+                <h2>Hello</h2>
+                <p>We are happy to have you</p>
+            </div>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="btn-group mb-3 w-100" role="group">
+                    @foreach(['Student', 'Employee', 'Customer', 'Admin', 'Trainer'] as $type)
+                        <button type="button" class="btn btn-outline-primary" data-type="{{ $type }}">
+                            {{ $type }}
+                        </button>
+                    @endforeach
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Email address" required />
+                </div>
+                <div class="mb-3 password-wrapper">
+                    <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Password" required />
+                    <i class="bi bi-eye-slash toggle-password" id="togglePassword"></i>
+                </div>
+                <div class="d-flex justify-content-between mb-4">
+                    <div>
+                        <input type="checkbox" id="rememberMe" name="remember" />
+                        <label for="rememberMe">Remember Me</label>
+                    </div>
+                    <div>
+                        <a href="#" class="text-primary">Forgot Password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary w-100">Login</button>
+                <div class="text-center mt-3">
+                    <small>Don't have an account? <a href="/signUp">Sign Up</a></small>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="input-group mb-3">
-        <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
-    </div>
-    <div class="row">
-        <small>Don't have an account? <a href="/signUp">Sign Up</a></small>
-    </div>
 </div>
 </div>
 </div>
-
 <script>
-        // Toggle Password Visibility
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
+    document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("togglePassword").addEventListener("click", function () {
+        const passwordInput = document.getElementById("password");
+        const isPassword = passwordInput.type === "password";
+        passwordInput.type = isPassword ? "text" : "password";
+        this.classList.toggle("bi-eye-slash");
+        this.classList.toggle("bi-eye");
+    });
 
-        togglePassword.addEventListener('click', function () {
-            const isPassword = passwordInput.type === 'password';
-            passwordInput.type = isPassword ? 'text' : 'password';
-            togglePassword.classList.toggle('bi-eye-slash');
-            togglePassword.classList.toggle('bi-eye');
+    document.querySelectorAll(".btn-group .btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            document.querySelectorAll(".btn-group .btn").forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
         });
+    });
 
-        // Toggle User Type Buttons
-        const buttons = document.querySelectorAll('.btn-group button');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                buttons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to the clicked button
-                button.classList.add('active');
-            });
-        });
-    </script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let formData = new FormData(this);
+        fetch(this.action, {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                "Accept": "application/json"
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                window.location.href = data.redirect;
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
+
+</script>

@@ -1,3 +1,5 @@
 {
-    "default": "Student"
-}
+    "success": "Login successful",
+    "error": "Invalid email or password"
+  }
+  

@@ -2,172 +2,296 @@
     <div class="body_container">
         <div class="signup-container">
             <h2 class="text-center mb-4">{{ $signUpData['signup']['title'] }}</h2>
-            <form method="POST" action="{{ route('signup.submit') }}" id="signupForm">
-                @csrf
+<form id="signup-form" method="POST" action="{{ route('register') }}">
+    @csrf
 
-                <!-- Email Input with Send OTP Button -->
-                <div class="mb-3 d-flex align-items-center">
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class="form-control me-2"
-                        placeholder="{{ $signUpData['signup']['emailPlaceholder'] }}"
-                        required
-                    />
-                    <button
-                        type="button"
-                        id="sendEmailOtpBtn"
-                        class="btn btn-primary btn-sm px-3 otp-btn"
-                    >
-                        Send OTP
-                    </button>
-                </div>
+    <!-- User Type Dropdown -->
+    <div class="mb-2">
+        <select class="form-control" name="user_type" id="user-type" required>
+            <option value="">Select User Type</option>
+            <option value="Admin">Admin</option>
+            <option value="Student">Student</option>
+            <option value="Employee">Employee</option>
+            <option value="Trainer">Trainer</option>
+            <option value="Customer">Customer</option>
+        </select>
+        <div class="error-message" id="user-type-error">Please select a user type.</div>
+    </div>
 
-                <!-- Phone Number Input -->
-                <div class="mb-3">
-                    <input
-                        type="text"
-                        name="phone"
-                        id="phone"
-                        class="form-control"
-                        placeholder="Enter Phone Number"
-                        required
-                    />
-                </div>
+    <!-- Email Input -->
+    <div class="mb-2">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
+        <div class="error-message" id="email-error">Please enter a valid email address.</div>
+    </div>
 
-                <!-- OTP Input -->
-                <div class="mb-3">
-                    <input
-                        type="text"
-                        name="otp"
-                        id="otp"
-                        class="form-control"
-                        placeholder="Enter OTP"
-                        required
-                    />
-                </div>
+    <!-- Create Password Input -->
+    <div class="mb-2 password-wrapper">
+        <input type="password" class="form-control" name="password" id="create-password" placeholder="Create password" required />
+        <i class="bi bi-eye-slash toggle-password" data-target="create-password"></i>
+        <div class="suggest-password" id="suggest-password">Suggest a strong password</div>
+    </div>
 
-                <!-- Password Fields -->
-                <div class="mb-3 password-wrapper">
-                    <input
-                        type="password"
-                        name="password"
-                        class="form-control"
-                        id="create-password"
-                        placeholder="{{ $signUpData['signup']['passwordPlaceholder'] }}"
-                        required
-                    />
-                    <i
-                        class="bi bi-eye-slash toggle-password"
-                        data-target="create-password"
-                    ></i>
-                </div>
-                <div class="mb-3 password-wrapper">
-                    <input
-                        type="password"
-                        name="password_confirmation"
-                        class="form-control"
-                        id="confirm-password"
-                        placeholder="{{ $signUpData['signup']['confirmPasswordPlaceholder'] }}"
-                        required
-                    />
-                    <i
-                        class="bi bi-eye-slash toggle-password"
-                        data-target="confirm-password"
-                    ></i>
-                </div>
+    <!-- Confirm Password Input -->
+    <div class="mb-2 password-wrapper">
+        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required />
+        <i class="bi bi-eye-slash toggle-password" data-target="confirm-password"></i>
+        <div class="error-message" id="password-error">Passwords do not match.</div>
+    </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-warning w-100 mb-2">
-                    {{ $signUpData['signup']['signupButton'] }}
-                </button>
+    <!-- Terms and Conditions -->
+    <div class="mb-2 form-check terms-conditions">
+        <input type="checkbox" class="form-check-input" id="terms" required />
+        <label class="form-check-label" for="terms">
+            I agree to the <a href="#">Terms and Conditions</a>
+        </label>
+        <div class="error-message" id="tesurbmitsurbmitrms-error">You must agree to the terms and conditions.</div>
+    </div>
 
-                <!-- Login Link -->
-                <p class="text-center">
-                    {{ $signUpData['signup']['loginText'] }}
-                    <a href="{{ route('login') }}">{{ $signUpData['signup']['loginLink'] }}</a>
-                </p>
-            </form>
+    <!-- Send OTP Button -->
+    <button type="button" class="btn btn-warning w-100 mb-2" id="send-otp" disabled>
+        Send OTP
+    </button>
+
+    <!-- OTP Input Box -->
+    <div class="mb-2 otp-box" id="otp-box" style="display: none;">
+        <input type="text" class="form-control" name="otp" id="otp" placeholder="Enter OTP" required />
+        <div class="error-message" id="otp-error">Invalid OTP.</div>
+        <div class="resend-otp" id="resend-otp">Resend OTP</div>
+    </div>
+
+    <!-- Signup Button -->
+    <button type="submit" class="btn btn-warning w-100 mb-2" id="signup-button" disabled>
+        Signup
+    </button>
+
+    <!-- Login Link -->
+    <p class="text-center mb-0">
+        Already have an account? <a href="{{ route('login') }}">Login</a>
+    </p>
+</form>
+
         </div>
     </div>
 </div>
 
 <script>
-    // Toggle password visibility
-    document.querySelectorAll(".toggle-password").forEach((eyeIcon) => {
-        eyeIcon.addEventListener("click", function () {
-            const targetInput = document.getElementById(
-                this.getAttribute("data-target")
-            );
-            if (targetInput.type === "password") {
-                targetInput.type = "text";
-                this.classList.remove("bi-eye-slash");
-                this.classList.add("bi-eye");
-            } else {
-                targetInput.type = "password";
-                this.classList.remove("bi-eye");
-                this.classList.add("bi-eye-slash");
-            }
-        });
-    });
-
-    // Send OTP functionality for email
-    const sendEmailOtpBtn = document.getElementById('sendEmailOtpBtn');
-    const emailInput = document.getElementById('email');
-
-    sendEmailOtpBtn.addEventListener('click', function () {
-        const email = emailInput.value.trim();
-
-        if (!validateEmail(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // Send OTP request via AJAX
-        fetch('{{ route('send.email.otp') }}', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            },
-            body: JSON.stringify({ email }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.success) {
-                    alert(data.message); // Notify the user
-                } else {
-                    alert('Failed to send OTP. Please try again.');
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('An error occurred while sending the OTP.');
-            });
-    });
-
-    // Email validation function
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
+  
+    // Toggle Password Visibility
+document.querySelectorAll(".toggle-password").forEach((eyeIcon) => {
+  eyeIcon.addEventListener("click", function () {
+    const targetInput = document.getElementById(
+      this.getAttribute("data-target")
+    );
+    if (targetInput.type === "password") {
+      targetInput.type = "text";
+      this.classList.remove("bi-eye-slash");
+      this.classList.add("bi-eye");
+    } else {
+      targetInput.type = "password";
+      this.classList.remove("bi-eye");
+      this.classList.add("bi-eye-slash");
     }
+  });
+});
 
-    // Form validation before submission
-    const signupForm = document.getElementById('signupForm');
-    signupForm.addEventListener('submit', function (event) {
-        const phoneInput = document.getElementById('phone');
-        const phone = phoneInput.value.trim();
+// Get Elements
+const userTypeSelect = document.getElementById("user-type");
+const userTypeError = document.getElementById("user-type-error");
+const emailInput = document.getElementById("email");
+const emailError = document.getElementById("email-error");
+const createPassword = document.getElementById("create-password");
+const confirmPassword = document.getElementById("confirm-password");
+const passwordError = document.getElementById("password-error");
+const termsCheckbox = document.getElementById("terms");
+const termsError = document.getElementById("terms-error");
+const sendOtpButton = document.getElementById("send-otp");
+const otpBox = document.getElementById("otp-box");
+const signupButton = document.getElementById("signup-button");
+const resendOtpLink = document.getElementById("resend-otp");
+const otpInput = document.getElementById("otp");
+const otpError = document.getElementById("otp-error");
 
-        if (!validatePhone(phone)) {
-            alert('Please enter a valid phone number.');
-            event.preventDefault(); // Prevent form submission
-        }
-    });
+// Function to check form validity
+function validateForm() {
+  if (
+    userTypeSelect.value !== "" &&
+    emailInput.value !== "" &&
+    emailError.classList.contains("visible") === false &&
+    createPassword.value !== "" &&
+    confirmPassword.value !== "" &&
+    createPassword.value === confirmPassword.value &&
+    termsCheckbox.checked
+  ) {
+    sendOtpButton.disabled = false;
+  } else {
+    sendOtpButton.disabled = true;
+  }
+}
 
-    // Phone number validation function
-    function validatePhone(phone) {
-        const re = /^[0-9]{10}$/; // Adjust for your region
-        return re.test(phone);
+// Validate User Type
+userTypeSelect.addEventListener("change", () => {
+  if (userTypeSelect.value === "") {
+    userTypeError.classList.add("visible");
+  } else {
+    userTypeError.classList.remove("visible");
+  }
+  validateForm();
+});
+
+// Validate Email
+emailInput.addEventListener("input", () => {
+  const email = emailInput.value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    emailError.classList.add("visible");
+  } else {
+    emailError.classList.remove("visible");
+  }
+  validateForm();
+});
+
+// Validate Passwords Match
+confirmPassword.addEventListener("input", () => {
+  if (createPassword.value !== confirmPassword.value) {
+    passwordError.classList.add("visible");
+  } else {
+    passwordError.classList.remove("visible");
+  }
+  validateForm();
+});
+
+// Validate Terms and Conditions
+termsCheckbox.addEventListener("change", () => {
+  if (!termsCheckbox.checked) {
+    termsError.classList.add("visible");
+  } else {
+    termsError.classList.remove("visible");
+  }
+  validateForm();
+});
+
+// Suggest a Strong Password
+document.getElementById("suggest-password").addEventListener("click", () => {
+  const strongPassword = generateStrongPassword();
+  createPassword.value = strongPassword;
+  confirmPassword.value = strongPassword;
+  passwordError.classList.remove("visible");
+  validateForm();
+});
+
+// Generate a Strong Password
+function generateStrongPassword() {
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  let password = "";
+  for (let i = 0; i < 12; i++) {
+    password += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return password;
+}
+
+// Simulate Sending OTP
+let generatedOtp = null;
+let otpResendTimer = 30; // 30-second cooldown for resend OTP
+
+sendOtpButton.addEventListener("click", function () {
+  const email = document.getElementById("email").value;
+  if (!email) {
+    alert("Please enter your email address.");
+    return;
+  }
+
+  // Simulate OTP Generation
+  generatedOtp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
+  alert(`OTP sent to ${email}. Your OTP is ${generatedOtp}.`); // Simulate sending OTP
+  otpBox.style.display = "block"; // Show OTP input box
+  signupButton.disabled = false; // Enable signup button
+
+  // Disable Resend OTP for 30 seconds
+  resendOtpLink.classList.add("disabled");
+  resendOtpLink.textContent = `Resend OTP (${otpResendTimer}s)`;
+  const resendInterval = setInterval(() => {
+    otpResendTimer--;
+    resendOtpLink.textContent = `Resend OTP (${otpResendTimer}s)`;
+    if (otpResendTimer <= 0) {
+      clearInterval(resendInterval);
+      resendOtpLink.classList.remove("disabled");
+      resendOtpLink.textContent = "Resend OTP";
+      otpResendTimer = 30; // Reset timer
     }
+  }, 1000);
+});
+
+// Resend OTP
+resendOtpLink.addEventListener("click", function () {
+  if (resendOtpLink.classList.contains("disabled")) return;
+
+  const email = document.getElementById("email").value;
+  if (!email) {
+    alert("Please enter your email address.");
+    return;
+  }
+
+  // Simulate OTP Generation
+  generatedOtp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
+  alert(`OTP resent to ${email}. Your OTP is ${generatedOtp}.`); // Simulate sending OTP
+
+  // Disable Resend OTP for 30 seconds
+  resendOtpLink.classList.add("disabled");
+  resendOtpLink.textContent = `Resend OTP (${otpResendTimer}s)`;
+  const resendInterval = setInterval(() => {
+    otpResendTimer--;
+    resendOtpLink.textContent = `Resend OTP (${otpResendTimer}s)`;
+    if (otpResendTimer <= 0) {
+      clearInterval(resendInterval);
+      resendOtpLink.classList.remove("disabled");
+      resendOtpLink.textContent = "Resend OTP";
+      otpResendTimer = 30; // Reset timer
+    }
+  }, 1000);
+});
+
+// Validate OTP and Submit Form
+document.getElementById("signup-form").addEventListener("submit", function (e) {
+  let hasErrors = false;
+
+  // Validate User Type
+  if (userTypeSelect.value === "") {
+    userTypeError.classList.add("visible");
+    hasErrors = true;
+  } else {
+    userTypeError.classList.remove("visible");
+  }
+
+  // Validate OTP
+  const otp = otpInput.value;
+  if (!otp || otp.length !== 4 || otp !== generatedOtp?.toString()) {
+    otpError.classList.add("visible");
+    hasErrors = true;
+  } else {
+    otpError.classList.remove("visible");
+  }
+
+  // Validate Passwords Match
+  if (createPassword.value !== confirmPassword.value) {
+    passwordError.classList.add("visible");
+    hasErrors = true;
+  } else {
+    passwordError.classList.remove("visible");
+  }
+
+  // Validate Terms and Conditions
+  if (!termsCheckbox.checked) {
+    termsError.classList.add("visible");
+    hasErrors = true;
+  } else {
+    termsError.classList.remove("visible");
+  }
+
+  // **🚀 Fix: Allow form submission if there are no errors**
+  if (hasErrors) {
+    e.preventDefault(); // Stop submission only if validation fails
+  }
+});
+
 </script>

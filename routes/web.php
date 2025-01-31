@@ -32,7 +32,7 @@ Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
 
 
 // Submit the signup form
-Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
+Route::post('/register', [SignUpController::class, 'register'])->name('register');
 
 
 
@@ -63,7 +63,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 Route::post('/contact-us/submit', [ContactController::class, 'submit'])->name('contact.submit');
 // Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
 // Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
-
+Route::post('/login_post', [LoginController::class, 'login_post']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
