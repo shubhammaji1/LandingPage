@@ -17,8 +17,8 @@
             <div class="carousel-item @if($index === 0) active @endif">
                 <img src="{{ asset($slide['image']) }}" alt="{{ $slide['altText'] }}" class="d-block w-100" style="object-fit: cover; height: 500px;" />
                 <div class="carousel-caption text-center">
-                    <h1 class="animate__animated animate_slideInDown">{{ $slide['caption']['title'] }}</h1>
-                    <h3 class="animate__animated animate_zoomIn">{{ $slide['caption']['subtitle'] }}</h3>
+                    <h1 class="animate__animated animate_slideInDown fs-1 fs-md-2 fs-sm-3">{{ $slide['caption']['title'] }}</h1>
+                    <h3 class="animate__animated animate_zoomIn fs-6">{{ $slide['caption']['subtitle'] }}</h3>
                     <button class="{{ $slide['caption']['button']['classes'] }} mt-3" style="position: relative; overflow: hidden;">
                     <a href="{{ $slide['caption']['button']['link'] }}" style="text-decoration:none;color:white">
         {{ $slide['caption']['button']['text'] }}
@@ -34,7 +34,7 @@
         type="button" 
         data-bs-target="#{{ $featureSection['carousel']['id'] }}" 
         data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon d-none d-md-block" aria-hidden="true"></span>
         <span class="visually-hidden">{{ $featureSection['carousel']['controls']['prev']['label'] }}</span>
     </button>
     <button 
@@ -42,7 +42,7 @@
         type="button" 
         data-bs-target="#{{ $featureSection['carousel']['id'] }}" 
         data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon d-none d-md-block" aria-hidden="true"></span>
         <span class="visually-hidden">{{ $featureSection['carousel']['controls']['next']['label'] }}</span>
     </button>
 </div>

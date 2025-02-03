@@ -49,43 +49,51 @@
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("togglePassword").addEventListener("click", function () {
-        const passwordInput = document.getElementById("password");
-        const isPassword = passwordInput.type === "password";
-        passwordInput.type = isPassword ? "text" : "password";
-        this.classList.toggle("bi-eye-slash");
-        this.classList.toggle("bi-eye");
-    });
+        // Toggle password visibility
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            const passwordInput = document.getElementById("password");
+            const isPassword = passwordInput.type === "password";
+            passwordInput.type = isPassword ? "text" : "password";
+            this.classList.toggle("bi-eye-slash");
+            this.classList.toggle("bi-eye");
+        });
 
-    document.querySelectorAll(".btn-group .btn").forEach((button) => {
-        button.addEventListener("click", () => {
-            document.querySelectorAll(".btn-group .btn").forEach((btn) => btn.classList.remove("active"));
-            button.classList.add("active");
+        // Button group click event
+        document.querySelectorAll(".btn-group .btn").forEach((button) => {
+            button.addEventListener("click", () => {
+                document.querySelectorAll(".btn-group .btn").forEach((btn) => btn.classList.remove("active"));
+                button.classList.add("active");
+            });
+        });
+
+        // Form submit handler
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+            fetch(this.action, {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                    "Accept": "application/json"
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert(data.message); // Show success message
+                    window.location.href = data.redirect; // Redirect to dashboard or home page
+                } else {
+                    alert(data.message); // Show failure message
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again later.");
+            });
         });
     });
-
-    document.querySelector("form").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        let formData = new FormData(this);
-        fetch(this.action, {
-            method: "POST",
-            headers: {
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-                "Accept": "application/json"
-            },
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "success") {
-                window.location.href = data.redirect;
-            } else {
-                alert(data.message);
-            }
-        })
-        .catch(error => console.error("Error:", error));
-    });
-});
-
 </script>
+
+

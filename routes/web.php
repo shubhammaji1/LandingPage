@@ -19,6 +19,16 @@ use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TermsController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+});
+
+
 
 
 Route::get('/terms-and-conditions', [TermsController::class, 'index']);
@@ -63,8 +73,14 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 Route::post('/contact-us/submit', [ContactController::class, 'submit'])->name('contact.submit');
 // Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
 // Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
-Route::post('/login_post', [LoginController::class, 'login_post']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/login', [LoginController::class, 'login_post'])->name('login_post');
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', function () {
+    Auth::logout();
+    session()->invalidate(); // Clears session
+    session()->regenerateToken(); // Prevents CSRF attacks
+    return redirect('/')->with('success', 'Logged out successfully');
+})->name('logout');
 
 
 

@@ -1,11 +1,11 @@
 <div class="global_donation_section">
-<div class="hero-section">
+<div class="hero-section" id="donation">
     <h1 data-aos="fade-up" data-aos-duration="1500">{{ $donationData['hero']['title'] }}</h1>
-    <p data-aos="fade-up" data-aos-duration="2000">{{ $donationData['hero']['description'] }}</p>
+    
 
 </div>
 
-<div id="donation-section" class="container py-5">
+<div id="donation-section" class="container py-5 pt-0">
     <h2 class="text-center mb-4" data-aos="fade-up" data-aos-duration="1500">Donate to Our Cause</h2>
     <div class="row g-4">
         @foreach ($donationData['donations'] as $item)

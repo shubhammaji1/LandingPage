@@ -3,7 +3,7 @@
     background-image: url("/assets/overviewSection3.jpeg");
     background-size: cover;
     background-position: center;
-    height: 50vh;
+    height: 25vh;
     color: #000000;
     text-align: center;
     display: flex;
@@ -28,12 +28,13 @@
   }
   
   .btn-donate {
-    background-color: #fff9ca;
+    background-color: rgb(244,241,39);
     color: #000000;
   }
   
   .btn-donate:hover {
-    background-color: #218838;
+    background-color: #000000;
+    color:#fff;
   }
   
   
@@ -50,6 +51,7 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-top: 10px;
   }
   
   .hero-section p {

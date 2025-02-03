@@ -5,6 +5,7 @@
   .overviewcontainer {
     width: 100vw;
     background: #182327;
+    padding:30px;
   }
   .section-padding {
     padding: 100px 0;
@@ -15,29 +16,3 @@
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
-  .global_overview_section {
-    .section-padding {
-      padding: 50px 20px; /* Reduce padding for smaller screens */
-    }
-    .overviewcontainer {
-      width: 100%; /* Ensure container fits within the viewport */
-      padding: 0 15px; /* Add some padding for content spacing */
-    }
-    .about-text {
-      font-size: 14px; /* Adjust font size for readability */
-      line-height: 1.5; /* Improve line spacing */
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .global_overview_section {
-    .section-padding {
-      padding: 30px 10px; /* Further reduce padding for very small screens */
-    }
-    .about-text {
-      font-size: 12px; /* Smaller font size for extra small screens */
-    }
-  }
-}

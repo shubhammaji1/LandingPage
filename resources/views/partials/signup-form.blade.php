@@ -44,7 +44,8 @@
         <label class="form-check-label" for="terms">
             I agree to the <a href="#">Terms and Conditions</a>
         </label>
-        <div class="error-message" id="tesurbmitsurbmitrms-error">You must agree to the terms and conditions.</div>
+        <div class="error-message" id="terms-error">You must agree to the terms and conditions.</div>
+
     </div>
 
     <!-- Send OTP Button -->

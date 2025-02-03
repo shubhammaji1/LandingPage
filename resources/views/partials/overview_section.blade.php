@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
-                <div class="about-text">
+                <div class="about-text text-center text-lg-start">
                     <h2>{{ $overviewData['title'] }}</h2>
                     <p>{{ $overviewData['description'] }}</p>
                     <a href="{{ $overviewData['buttonLink'] }}" class="btn btn-warning">{{ $overviewData['buttonText'] }}</a>

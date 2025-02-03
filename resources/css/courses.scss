@@ -1,87 +1,20 @@
 /* General Styles */
 .global_courses{
-  .courseContainer {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .container-fluid {
-    width: 100%;
-    padding: 0;
-  }
-  
-  /* Carousel Styles */
   .carousel-item {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   }
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 50px;
-    height: 50px;
-  }
   
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: #000;
-    border-radius: 50%;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-  }
-  
-  .carousel-control-prev-icon:hover,
-  .carousel-control-next-icon:hover {
-    background-color: #ffc107;
-  }
-  
-  /* Custom Button */
-  .btn-custom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .d-flex.align-items-center.justify-content-center.position-relative {
-    position: relative;
-  }
-  
-  .position-absolute.start-0 {
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .position-absolute.end-0 {
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .text-center.text-dark.mx-3 {
-    margin: 0 1rem;
-  }
-  
-  /* Card Styles */
   .card {
     border: none;
-    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
   }
-  .card-body a {
-    text-decoration: none;
-  }
   
   .card:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
   }
   
   .card-title {
@@ -89,7 +22,16 @@
     font-weight: bold;
   }
   
-  /* Badge Styles */
+  .btn-primary {
+    background-color: #000;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
   .badge-new {
     position: absolute;
     top: 10px;
@@ -107,73 +49,54 @@
     right: 10px;
     background-color: #000;
     color: #ffc107;
+    font-weight: bold;
     border-radius: 5px;
     padding: 5px 10px;
   }
   
-  /* Enroll Now Button */
-  .btn-enroll-now {
-    background-color: #fff305;
-    color: #000;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
-  }
-  
-  .btn-enroll-now:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
-  /* Carousel Layout */
   .carousel {
     padding-bottom: 20px;
   }
   
-  /* Responsive Styles */
+  .card-body {
+    box-sizing: 10px 10px 5px black;
+  }
+  /* Mobile Responsiveness */
   @media (max-width: 768px) {
-    
-    .carousel-inner {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto; 
-      scroll-behavior: smooth; 
-    }
-  
-    .carousel-item {
-      flex: 0 0 auto; 
-      width: auto; 
-    }
-  
     .carousel-item .row {
       display: flex;
-      flex-wrap: nowrap; 
-      justify-content: flex-start; 
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
     }
   
-    .carousel-item .row .col-md-4,
-    .carousel-item .row .col-sm-8 {
-      width: auto; 
-      margin-right: 10px;
-    }
-  
-  
-    .carousel-control-prev,
-    .carousel-control-next {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      width: 25px;
-      height: 25px;
-    }
-  
-    .text-center.text-dark.mx-3 {
-      font-size: 1.5rem;
+    .carousel-item .col-md-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      scroll-snap-align: start;
     }
   }
+  
+  /* See More button */
+  .learn-more-btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: black;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically (if needed) */
+  }
+  .learn-more-btn:hover {
+    background-color: rgb(244, 241, 39);
+    color: black;
+    transform: scale(1.1);
+  }
+}

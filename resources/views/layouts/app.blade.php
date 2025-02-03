@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pentapolis</title>
+  <title>Pentapolis Foundation</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ mix('css/login.css') }}">
@@ -37,10 +37,11 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    @yield('content')
+<body style="overflow-x: hidden;">
+     @yield('content')
 
-    
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/01/31/18/20250131182433-FNPPDA8S.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
