@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
@@ -39,10 +41,8 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::post('/send-email-otp', [OtpController::class, 'sendEmailOtp'])->name('send.email.otp');
 // Show the signup form
 Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
-
-
 // Submit the signup form
-Route::post('/register', [SignUpController::class, 'register'])->name('register');
+Route::post('/signup', [SignUpController::class, 'register'])->name('register');
 
 
 
@@ -71,14 +71,11 @@ Route::get('/volunteering', [VolunteerController::class, 'create'])->name('volun
 Route::post('/volunteering', [VolunteerController::class, 'store'])->name('volunteer.store');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact-us/submit', [ContactController::class, 'submit'])->name('contact.submit');
-// Route::get('/signUp', [SignUpController::class, 'show'])->name('signup.show');
-// Route::post('/signUp', [SignUpController::class, 'submit'])->name('signup.submit');
 Route::post('/login', [LoginController::class, 'login_post'])->name('login_post');
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/logout', function () {
     Auth::logout();
-    session()->invalidate(); // Clears session
-    session()->regenerateToken(); // Prevents CSRF attacks
+    session()->invalidate(); 
+    session()->regenerateToken(); 
     return redirect('/')->with('success', 'Logged out successfully');
 })->name('logout');
 

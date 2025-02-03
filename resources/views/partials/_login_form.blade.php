@@ -14,8 +14,10 @@
             </div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
+            <input type="hidden" name="user_type" id="userType" value="{{ $activeType }}" />   
                 <div class="btn-group mb-3 w-100" role="group">
                     @foreach(['Student', 'Employee', 'Customer', 'Admin', 'Trainer'] as $type)
+                    
                         <button type="button" class="btn btn-outline-primary" data-type="{{ $type }}">
                             {{ $type }}
                         </button>
@@ -34,7 +36,7 @@
                         <label for="rememberMe">Remember Me</label>
                     </div>
                     <div>
-                        <a href="#" class="text-primary">Forgot Password?</a>
+                        <a href="/forgetPassword" class="text-primary">Forgot Password?</a>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary w-100">Login</button>
@@ -60,9 +62,11 @@
 
         // Button group click event
         document.querySelectorAll(".btn-group .btn").forEach((button) => {
-            button.addEventListener("click", () => {
+            button.addEventListener("click", function () {
                 document.querySelectorAll(".btn-group .btn").forEach((btn) => btn.classList.remove("active"));
                 button.classList.add("active");
+                // Update the hidden input with the selected user type
+                document.getElementById("userType").value = button.getAttribute("data-type");
             });
         });
 

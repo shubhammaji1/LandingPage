@@ -17,20 +17,27 @@ class LoginController extends Controller
     }
     public function login_post (Request $request)
     {
-        $credentials = $request->validate([
+        $credentials =  $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'user_type' => 'required|in:Student,Employee,Customer,Admin,Trainer', // Ensure valid user type
         ]);
-
-        if (Auth::attempt($credentials, $request->filled('remember'))) {
+        $user = \App\Models\User::where('email', $request->email)
+        ->where('user_type', $request->user_type) // Make sure user type matches
+        ->first();
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Authenticate the user
+            $remember = $request->has('remember');
+            Auth::login($user, $remember);
             $request->session()->regenerate();
-
+    
             return response()->json([
                 'status' => 'success',
                 'message' => 'Login successful',
                 'redirect' => route('home')
             ]);
         }
+    
 
         return response()->json([
             'status' => 'error',

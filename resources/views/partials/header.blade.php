@@ -1,4 +1,5 @@
 <div class="global_header">
+<div class="body_header">
   <nav class="navbar navbar-expand-lg py-3 py-lg-2 shadow nav-custom" style="background-color: rgb(244, 241, 39)">
     <div class="container-fluid">
       <!-- Brand Logo -->
@@ -60,28 +61,37 @@
         </ul>
 
         <!-- Conditional Login/Profile Button -->
-        @auth
-          <!-- If user is authenticated, show profile button -->
-          <div class="d-flex align-items-center ms-lg-3">
-            <a href="/profile" class="nav-btn nav-btn-outline-primary me-2"><i class="fa fa-user"></i> Profile</a>
-          </div>
-  
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-inline">
-              @csrf
-              <button type="submit" class="nav-btn nav-btn-outline-primary me-2">
-                  <i class="fa fa-sign-out-alt"></i> Logout
-              </button>
+      <!-- Conditional Login/Profile Button -->
+@auth
+  <!-- If user is authenticated, show profile dropdown -->
+  <div class="d-flex align-items-center ms-lg-3">
+    <div class="dropdown ">
+      <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center profile-btn"
+        type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-user"></i> <!-- User Icon -->
+      </button>
+      <ul class="dropdown-menu profile_block dropdown-menu-end" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="/profile"><i class="fa fa-user-circle"></i> Profile</a></li>
+        <li>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="dropdown-item"><i class="fa fa-sign-out-alt"></i> Logout</button>
           </form>
-  
-        @else
-          <!-- If user is not authenticated, show login button -->
-          <div class="d-flex align-items-center ms-lg-3">
-            <a href="/login" class="nav-btn nav-btn-outline-primary me-2"><i class="fa fa-sign-in"></i> Login</a>
-          </div>
-        @endauth
+        </li>
+      </ul>
+    </div>
+  </div>
+@else
+  <!-- If user is not authenticated, show login button -->
+  <div class="d-flex align-items-center ms-lg-3">
+    <a href="/login" class="nav-btn nav-btn-outline-primary me-2"><i class="fa fa-sign-in"></i> Login</a>
+  </div>
+@endauth
+
       </div>
     </div>
   </nav>
+</div>
 </div>
 
 <script>

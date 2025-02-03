@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+
 
 class SignUpController extends Controller
 {
@@ -23,20 +25,24 @@ class SignUpController extends Controller
     public function register(Request $request)
     {
         // Validate the form data
-        $request->validate([
-            'user_type' => 'required|string',
+        $validator = Validator::make($request->all(), [
+           'user_type' => 'required|string|in:Student,Employee,Customer,Admin,Trainer',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
+            'otp' => 'required|digits:4'
         ]);
-
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+  
         // Store user in database
-        $user = User::create([
+        User::create([
             'user_type' => $request->user_type,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
         return redirect()->route('login')->with('success', 'Registration successful!');
-        dd($request->all());
+       
     }
 }
