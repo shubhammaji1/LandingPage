@@ -29,6 +29,7 @@ use Illuminate\Http\Request;
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
+Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 
 

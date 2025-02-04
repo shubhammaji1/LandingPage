@@ -34,7 +34,8 @@
     <link rel="stylesheet" href="{{ mix('css/volunteer.css') }}">
     <link rel="stylesheet" href="{{ mix('css/blog.css') }}">
     <link rel="stylesheet" href="{{ mix('css/terms.css') }}">
-    
+    <link rel="stylesheet" href="{{ mix('css/profile.css') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="overflow-x: hidden;">
