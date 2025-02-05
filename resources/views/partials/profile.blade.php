@@ -11,7 +11,7 @@
             <div class="col-md-4 text-center">
                 <img src="{{ asset('storage/' . ($user->profile_picture ?? 'images/default-avatar.png')) }}" 
                     alt="Profile Picture" 
-                    class="img-fluid rounded-circle mb-3" 
+                    class="img-fluid rounded mb-3" 
                     width="150">
 
                 <h4>{{ $user->name }}</h4>

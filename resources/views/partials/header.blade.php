@@ -66,10 +66,16 @@
   <!-- If user is authenticated, show profile dropdown -->
   <div class="d-flex align-items-center ms-lg-3">
     <div class="dropdown ">
-      <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center profile-btn"
+    <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center profile-btn"
         type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa fa-user"></i> <!-- User Icon -->
-      </button>
+        @if(auth()->user()->profile_picture)
+            <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" 
+            alt="Profile Picture" class="rounded-circle" width="40" height="40">
+        @else
+            <i class="fa fa-user"></i> <!-- Default User Icon -->
+        @endif
+    </button>
+
       <ul class="dropdown-menu profile_block dropdown-menu-end" aria-labelledby="profileDropdown">
         <li><a class="dropdown-item" href="/profile"><i class="fa fa-user-circle"></i> Profile</a></li>
         <li>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('profile_picture')->nullable();
             if (!Schema::hasColumn('users', 'remember_token')) {  
-                $table->rememberToken()->after('password');
+                $table->rememberToken();
             }
             $table->timestamps();
         });
@@ -29,7 +29,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
-    }
-    
-    
+    }   
 };

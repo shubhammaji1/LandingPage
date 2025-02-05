@@ -33,14 +33,14 @@
 
     <!-- Confirm Password Input -->
     <div class="mb-2 password-wrapper">
-        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required />
+        <input type="password" class="form-control" name="password_confirmation" id="confirm-password" placeholder="Confirm password" required />
         <i class="bi bi-eye-slash toggle-password" data-target="confirm-password"></i>
         <div class="error-message" id="password-error">Passwords do not match.</div>
     </div>
 
     <!-- Terms and Conditions -->
     <div class="mb-2 form-check terms-conditions">
-        <input type="checkbox" class="form-check-input" id="terms" required />
+        <input type="checkbox" class="form-check-input" id="terms" name="terms" value="1" required />
         <label class="form-check-label" for="terms">
             I agree to the <a href="#">Terms and Conditions</a>
         </label>

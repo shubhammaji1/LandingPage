@@ -32,7 +32,7 @@ class ProfileController extends Controller
         ]);
 
         // Update name
-        $user->name = $request->name;
+            $user->name = $request->name;
 
         // Handle profile picture upload
         if ($request->hasFile('profile_picture')) {

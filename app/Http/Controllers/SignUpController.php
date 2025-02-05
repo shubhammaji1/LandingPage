@@ -29,9 +29,13 @@ class SignUpController extends Controller
            'user_type' => 'required|string|in:Student,Employee,Customer,Admin,Trainer',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
-            'otp' => 'required|digits:4'
+            'otp' => 'required|digits:4',
+            'terms' => 'required|in:1',
         ]);
+
+
         if ($validator->fails()) {
+            dd($validator->errors());
             return redirect()->back()->withErrors($validator)->withInput();
         }
     
