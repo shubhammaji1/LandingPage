@@ -26,7 +26,8 @@ class SignUpController extends Controller
     {
         // Validate the form data
         $validator = Validator::make($request->all(), [
-           'user_type' => 'required|string|in:Student,Employee,Customer,Admin,Trainer',
+            'name' => 'required|string|max:255',
+            'user_type' => 'required|string|in:Student,Employee,Customer,Admin,Trainer',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'otp' => 'required|digits:4',
@@ -44,6 +45,7 @@ class SignUpController extends Controller
         User::create([
             'user_type' => $request->user_type,
             'email' => $request->email,
+            'name' => $request->name,
             'password' => Hash::make($request->password),
         ]);
         return redirect()->route('login')->with('success', 'Registration successful!');

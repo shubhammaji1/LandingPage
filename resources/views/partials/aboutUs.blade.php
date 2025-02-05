@@ -6,7 +6,7 @@
 
 <div class="aboutUs_section">
 
-<section class="hero animate__animated animate__fadeIn" data-aos="fade-in" style="background-image: url('{{ $data['hero_section']['background_image'] }}');">
+<section class="hero animate_animated animate_fadeIn" data-aos="fade-in" style="background-image: url('{{ $data['hero_section']['background_image'] }}');">
     <div class="container">
         <h1 class="display-30">{{ $data['hero_section']['title'] }}</h1>
         <p class="lead">{{ $data['hero_section']['subheading'] }}</p>
@@ -19,12 +19,12 @@
     <div class="container">
         <h2 class="section-title text-center">{{ $data['about_section']['title'] }}</h2>
         <div class="row">
-            <div class="col-lg-6 animate__animated animate__fadeInLeft" data-aos="fade-right">
+            <div class="col-lg-6 animate_animated animate_fadeInLeft" data-aos="fade-right">
                 @foreach ($data['about_section']['text'] as $paragraph)
                     <p>{!! $paragraph['paragraph'] !!}</p>
                 @endforeach
             </div>
-            <div class="col-lg-6 animate__animated animate__fadeInRight" data-aos="fade-left">
+            <div class="col-lg-6 animate_animated animate_fadeInRight" data-aos="fade-left">
                 <img src="{{ $data['about_section']['image'] }}" class="img-fluid rounded" alt="About Us" />
             </div>
         </div>
@@ -62,27 +62,23 @@
 </section>
 
 <!-- Meet The Team Section -->
-<!-- Meet The Team Section -->
 <section class="bg-dark py-5" data-aos="fade-up" data-aos-duration="1500">
     <div class="container">
         <h2 class="section-title text-center">{{ $data['meet_the_team_section']['title'] }}</h2>
-        <p class="text-center text-white">{{ $data['meet_the_team_section']['subheading'] }}</p>
+        <p>{{ $data['meet_the_team_section']['subheading'] }}</p>
         <div class="row text-center">
             @foreach ($data['meet_the_team_section']['team_members'] as $member)
                 <div class="col-md-4" data-aos="fade-in" data-aos-delay="{{ $loop->index * 100 }}">
                     <div class="team-member">
-                        <div class="card-inner">
-                            <img src="{{ $member['image'] }}" alt="Team Member" class="img-fluid rounded" />
-                            <h5 class="mt-3 text-white">{{ $member['name'] }}</h5>
-                            <p class="text-white">{{ $member['position'] }}</p>
-                        </div>
+                        <img src="{{ $member['image'] }}" alt="Team Member" />
+                        <h5 class="mt-3">{{ $member['name'] }}</h5>
+                        <p>{{ $member['position'] }}</p>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
 </section>
-
 
 <!-- Where We Work Section -->
 <section class="py-5" data-aos="fade-up" data-aos-duration="1500">
@@ -111,27 +107,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        function isMobile() {
-            return window.innerWidth < 768; // Define mobile screen size
-        }
-
-        document.querySelectorAll(".team-member").forEach((card) => {
-            if (!isMobile()) {
-                // Desktop: Rotate on hover
-                card.addEventListener("mouseenter", function () {
-                    this.classList.add("rotate");
-                });
-                card.addEventListener("mouseleave", function () {
-                    this.classList.remove("rotate");
-                });
-            } else {
-                // Mobile: Rotate only on click
-                card.addEventListener("click", function () {
-                    this.classList.toggle("rotate");
-                });
-            }
-        });
+    AOS.init({
+        offset: 200, // Trigger point
+        duration: 1000, // Animation duration
+        easing: "ease-out-back",
+        delay: 100, // Delay before animation starts
+        once: true, // Animation occurs only once
     });
 </script>
-
