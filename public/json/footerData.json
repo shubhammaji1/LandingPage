@@ -2,9 +2,8 @@
   "about": "Pentapolis Foundation is dedicated to creating a better future through innovation and community support.",
   "links": [
       { "title": "About Us", "url": "/about-us" },
-      { "title": "Privacy Policy", "url": "#!" },
-      { "title": "Help", "url": "#!" },
-      { "title": "Support", "url": "#!" }
+      { "title": "Privacy Policy", "url": "/privacy-policy" },
+      { "title": "Help", "url": "/help-us" }
   ],
   "contact": {
       "address": "Narayanaswamy Nagar, Thandalam, Chennai-602105",

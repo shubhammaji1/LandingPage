@@ -27,8 +27,8 @@
     <!-- Create Password Input -->
     <div class="mb-2 password-wrapper">
         <input type="password" class="form-control" name="password" id="create-password" placeholder="Create password" required />
-        <i class="bi bi-eye-slash toggle-password" data-target="create-password"></i>
         <div class="suggest-password" id="suggest-password">Suggest a strong password</div>
+        <div class="error-message" id="password-length-error">Password must be at least 6 characters long.</div>
     </div>
 
     <!-- Confirm Password Input -->
@@ -95,6 +95,7 @@ document.querySelectorAll(".toggle-password").forEach((eyeIcon) => {
   });
 });
 
+
 // Get Elements
 const userTypeSelect = document.getElementById("user-type");
 const userTypeError = document.getElementById("user-type-error");
@@ -111,6 +112,7 @@ const signupButton = document.getElementById("signup-button");
 const resendOtpLink = document.getElementById("resend-otp");
 const otpInput = document.getElementById("otp");
 const otpError = document.getElementById("otp-error");
+const passwordLengthError = document.getElementById("password-length-error");
 
 // Function to check form validity
 function validateForm() {
@@ -150,6 +152,25 @@ emailInput.addEventListener("input", () => {
   }
   validateForm();
 });
+
+// Validate Password Length
+createPassword.addEventListener("input", () => {
+  if (createPassword.value.length < 6) {
+    passwordLengthError.classList.add("visible");
+  } else {
+    passwordLengthError.classList.remove("visible");
+  }
+  validateForm();
+});
+
+// Ensure Password Length Validation Before Submission
+document.getElementById("signup-form").addEventListener("submit", function (e) {
+  if (createPassword.value.length < 6) {
+    passwordLengthError.classList.add("visible");
+    e.preventDefault(); // Prevent form submission
+  }
+});
+
 
 // Validate Passwords Match
 confirmPassword.addEventListener("input", () => {
@@ -197,13 +218,18 @@ let otpResendTimer = 30; // 30-second cooldown for resend OTP
 
 sendOtpButton.addEventListener("click", function () {
   const email = document.getElementById("email").value;
-  if (!email) {
+  if (!email ) {
     alert("Please enter your email address.");
+    return;
+  }
+  const createPassword = document.getElementById("create-password").value;
+  if (!createPassword || createPassword.length < 6 ) {
+    alert("The password must contain atleast 6 characters.");
     return;
   }
 
   // Simulate OTP Generation
-  generatedOtp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
+  generatedOtp = Math.floor(100000 + Math.random() * 999999); // Generate a 6-digit OTP
   alert(`OTP sent to ${email}. Your OTP is ${generatedOtp}.`); // Simulate sending OTP
   otpBox.style.display = "block"; // Show OTP input box
   signupButton.disabled = false; // Enable signup button
@@ -223,34 +249,7 @@ sendOtpButton.addEventListener("click", function () {
   }, 1000);
 });
 
-// Resend OTP
-resendOtpLink.addEventListener("click", function () {
-  if (resendOtpLink.classList.contains("disabled")) return;
 
-  const email = document.getElementById("email").value;
-  if (!email) {
-    alert("Please enter your email address.");
-    return;
-  }
-
-  // Simulate OTP Generation
-  generatedOtp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
-  alert(`OTP resent to ${email}. Your OTP is ${generatedOtp}.`); // Simulate sending OTP
-
-  // Disable Resend OTP for 30 seconds
-  resendOtpLink.classList.add("disabled");
-  resendOtpLink.textContent = `Resend OTP (${otpResendTimer}s)`;
-  const resendInterval = setInterval(() => {
-    otpResendTimer--;
-    resendOtpLink.textContent = `Resend OTP (${otpResendTimer}s)`;
-    if (otpResendTimer <= 0) {
-      clearInterval(resendInterval);
-      resendOtpLink.classList.remove("disabled");
-      resendOtpLink.textContent = "Resend OTP";
-      otpResendTimer = 30; // Reset timer
-    }
-  }, 1000);
-});
 
 // Validate OTP and Submit Form
 document.getElementById("signup-form").addEventListener("submit", function (e) {
@@ -266,7 +265,7 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
 
   // Validate OTP
   const otp = otpInput.value;
-  if (!otp || otp.length !== 4 || otp !== generatedOtp?.toString()) {
+  if (!otp || otp.length !== 6 || otp !== generatedOtp?.toString()) {
     otpError.classList.add("visible");
     hasErrors = true;
   } else {
@@ -289,7 +288,7 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
     termsError.classList.remove("visible");
   }
 
-  // **🚀 Fix: Allow form submission if there are no errors**
+  // ** Fix: Allow form submission if there are no errors**
   if (hasErrors) {
     e.preventDefault(); // Stop submission only if validation fails
   }

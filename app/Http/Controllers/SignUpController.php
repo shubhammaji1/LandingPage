@@ -26,17 +26,16 @@ class SignUpController extends Controller
     {
         // Validate the form data
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
             'user_type' => 'required|string|in:Student,Employee,Customer,Admin,Trainer',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
-            'otp' => 'required|digits:4',
+            'otp' => 'required|digits:6',
             'terms' => 'required|in:1',
         ]);
 
 
         if ($validator->fails()) {
-            dd($validator->errors());
+            // dd($validator->errors());
             return redirect()->back()->withErrors($validator)->withInput();
         }
     
@@ -45,7 +44,7 @@ class SignUpController extends Controller
         User::create([
             'user_type' => $request->user_type,
             'email' => $request->email,
-            'name' => $request->name,
+            'name' => null,
             'password' => Hash::make($request->password),
         ]);
         return redirect()->route('login')->with('success', 'Registration successful!');
